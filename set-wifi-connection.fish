@@ -25,7 +25,8 @@ set connection (string join \n -- $connections |
 
 if test $status -eq 0
     set raw_connection $connection
-    set connection (string replace --regex '\s+\S+\s+\S+\s*$' '' -- $connection)
+    set connection (string replace --regex '(\s+(--|WPA.))*\s*$' '' -- $connection |
+        string replace --regex '\s+\S+$' '')
     set password
 
     if not string match --quiet --regex -- '--\s*$' $raw_connection
