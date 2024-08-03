@@ -1,0 +1,15 @@
+{
+    "emojisense.languages": {
+        "fish": {
+            "markupCompletionsEnabled": true,
+            "unicodeCompletionsEnabled": true
+        },
+        "markdown": true,
+        "plaintext": {
+            "markupCompletionsEnabled": false,
+            "emojiDecoratorsEnabled": false
+        },
+        "scminput": true,
+        "git-commit": true
+    }
+}
