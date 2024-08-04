@@ -5,7 +5,7 @@ source ~/Documents/open-source/fish/gui-menus/utils/wait.fish
 
 set expression (gum input \
     --header="$(color '❓ Math expression in ' $default_color)$(color 'Fish language' $identifier_color)$(color ': ' $default_color)" \
-    --prompt="🔑 " \
+    --prompt="🔢 " \
     --placeholder="Expression...")
 
 if test $status -eq 0
