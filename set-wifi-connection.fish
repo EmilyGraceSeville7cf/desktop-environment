@@ -1,6 +1,7 @@
 #!/usr/bin/env fish
 
 source ~/Documents/open-source/fish/gui-menus/utils/message.fish
+source ~/Documents/open-source/fish/gui-menus/utils/wait.fish
 
 set cancellation_message "The connection setup has been cancelled."
 
@@ -39,7 +40,7 @@ if test $status -eq 0
 
             test $status -ne 0 && begin
                 message $cancellation_message
-                sleep 3s
+                wait_keypress
                 exit
             end
         end
@@ -66,5 +67,5 @@ if test $status -eq 0
     end
 else
     message $cancellation_message
-    sleep 3s
+    wait_keypress
 end
