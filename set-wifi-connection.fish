@@ -1,11 +1,11 @@
 #!/usr/bin/env fish
 
 source ~/Documents/open-source/fish/gui-menus/utils/message.fish
-source ~/Documents/open-source/fish/gui-menus/utils/wait.fish
 
 set cancellation_message "The connection setup has been cancelled."
 
 set temp (mktemp)
+
 gum spin \
     --spinner=minidot \
     --title.foreground=$default_color \
@@ -28,6 +28,7 @@ if test $status -eq 0
     set raw_connection $connection
     set connection (string replace --regex '(\s+(--|WPA.))*\s*$' '' -- $connection |
         string replace --regex '\s+\S+$' '')
+    
     set password
 
     if not string match --quiet --regex -- '--\s*$' $raw_connection
@@ -40,7 +41,6 @@ if test $status -eq 0
 
             test $status -ne 0 && begin
                 message $cancellation_message
-                wait_keypress
                 exit
             end
         end
@@ -67,5 +67,4 @@ if test $status -eq 0
     end
 else
     message $cancellation_message
-    wait_keypress
 end

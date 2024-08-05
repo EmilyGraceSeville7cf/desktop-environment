@@ -1,6 +1,7 @@
 #!/usr/bin/env fish
 
 source ~/Documents/open-source/fish/gui-menus/utils/colors.fish
+source ~/Documents/open-source/fish/gui-menus/utils/wait.fish
 
 function message --argument-names message
     clear
@@ -14,6 +15,8 @@ function message --argument-names message
         --width=(math "$(tput cols) - 4") \
         --height=(math "$(tput lines) - 6") \
         $message
+    wait_keypress
+    clear
 end
 
 function question --argument-names question

@@ -1,7 +1,6 @@
 #!/usr/bin/env fish
 
 source ~/Documents/open-source/fish/gui-menus/utils/message.fish
-source ~/Documents/open-source/fish/gui-menus/utils/wait.fish
 
 set password ""
 
@@ -20,10 +19,7 @@ while true
         ~/Documents/open-source/fish/gui-menus/utils/is-correct-password.fish "$password"
 
     test $status -eq 0 && break
-
     message "Password is incorrect."
-    wait_keypress
-    clear
 end
 
 gum spin \
@@ -34,6 +30,7 @@ gum spin \
     sudo apt update -y
 
 set temp (mktemp)
+
 gum spin \
     --spinner=minidot \
     --title.foreground=$default_color \
@@ -47,7 +44,6 @@ set packages (cat $temp)
 
 if test "$packages" = ""
     message "All packages are updated."
-    wait_keypress
     exit
 end
 
@@ -69,5 +65,4 @@ if test $status -eq 0
         ~/Documents/open-source/fish/gui-menus/utils/upgrade-apt-packages.fish "$password" $selected_packages
 else
     message "The package update has been cancelled."
-    wait_keypress
 end

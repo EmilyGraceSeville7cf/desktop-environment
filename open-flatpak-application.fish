@@ -1,9 +1,9 @@
 #!/usr/bin/env fish
 
 source ~/Documents/open-source/fish/gui-menus/utils/message.fish
-source ~/Documents/open-source/fish/gui-menus/utils/wait.fish
 
 set temp (mktemp)
+
 gum spin \
     --spinner=minidot \
     --title.foreground=$default_color \
@@ -34,5 +34,4 @@ if test $status -eq 0
         flatpak run $id
 else
     message "The application launch has been cancelled."
-    wait_keypress
 end
