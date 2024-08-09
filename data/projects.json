@@ -5,19 +5,22 @@
             "name": "Blank",
             "language": "Fish",
             "directory": "$HOME/Documents/open-source/fish",
-            "generator": "fish-blank"
+            "generator": "fish-blank",
+            "entry": "main.fish"
         },
         {
             "name": "Completion",
             "language": "Fish",
             "directory": "$HOME/Documents/open-source/fish",
-            "generator": "fish-completion"
+            "generator": "fish-completion",
+            "entry": "complete.fish"
         },
         {
             "name": "CLI",
             "language": "Fish",
             "directory": "$HOME/Documents/open-source/fish",
-            "generator": "fish-cli"
+            "generator": "fish-cli",
+            "entry": "main.fish"
         }
     ]
 }

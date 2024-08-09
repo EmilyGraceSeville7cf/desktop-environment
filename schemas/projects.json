@@ -3,7 +3,10 @@
     "title": "projects",
     "description": "Projects",
     "type": "object",
-    "required": ["$schema", "data"],
+    "required": [
+        "$schema",
+        "data"
+    ],
     "additionalProperties": false,
     "properties": {
         "$schema": {
@@ -25,7 +28,8 @@
                     "name",
                     "language",
                     "directory",
-                    "generator"
+                    "generator",
+                    "entry"
                 ],
                 "additionalProperties": false,
                 "properties": {
@@ -38,7 +42,9 @@
                         "not": {
                             "pattern": "^\\s+|\\s+$|::"
                         },
-                        "examples": ["blank"]
+                        "examples": [
+                            "blank"
+                        ]
                     },
                     "language": {
                         "title": "language",
@@ -76,6 +82,20 @@
                         "not": {
                             "pattern": "^\\s+|\\s+$"
                         }
+                    },
+                    "entry": {
+                        "title": "entry",
+                        "description": "A filename of the project",
+                        "type": "string",
+                        "minLength": 1,
+                        "pattern": "[^ ]",
+                        "not": {
+                            "pattern": "^\\s+|\\s+$"
+                        },
+                        "examples": [
+                            "main.fish",
+                            "complete.fish"
+                        ]
                     }
                 }
             }
