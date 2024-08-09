@@ -1,0 +1,23 @@
+{
+    "$schema": "../schemas/projects.json",
+    "data": [
+        {
+            "name": "Blank",
+            "language": "Fish",
+            "directory": "$HOME/Documents/open-source/fish",
+            "generator": "fish-blank"
+        },
+        {
+            "name": "Completion",
+            "language": "Fish",
+            "directory": "$HOME/Documents/open-source/fish",
+            "generator": "fish-completion"
+        },
+        {
+            "name": "CLI",
+            "language": "Fish",
+            "directory": "$HOME/Documents/open-source/fish",
+            "generator": "fish-cli"
+        }
+    ]
+}

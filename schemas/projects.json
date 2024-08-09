@@ -1,0 +1,79 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "projects",
+    "description": "Projects",
+    "type": "object",
+    "required": ["$schema", "data"],
+    "additionalProperties": false,
+    "properties": {
+        "$schema": {
+            "title": "schema",
+            "description": "A schema used for validation",
+            "type": "string"
+        },
+        "data": {
+            "title": "data",
+            "description": "Data",
+            "type": "array",
+            "minItems": 1,
+            "uniqueItems": true,
+            "items": {
+                "title": "project",
+                "description": "A project",
+                "type": "object",
+                "required": [
+                    "name",
+                    "language",
+                    "directory",
+                    "generator"
+                ],
+                "additionalProperties": false,
+                "properties": {
+                    "name": {
+                        "title": "name",
+                        "description": "A name of the project type displayed in a choice list",
+                        "type": "string",
+                        "minLength": 1,
+                        "pattern": "^[A-Z]",
+                        "not": {
+                            "pattern": "^\\s+|\\s+$"
+                        },
+                        "examples": ["blank"]
+                    },
+                    "language": {
+                        "title": "language",
+                        "description": "A language of the project displayed in a choice list",
+                        "type": "string",
+                        "examples": [
+                            "Fish",
+                            "JavaScript",
+                            "TinyScheme",
+                            "C",
+                            "Go"
+                        ]
+                    },
+                    "directory": {
+                        "title": "directory",
+                        "description": "A parent directory to be used for a project creation\nProject is created at {{directory}}/{{project-name}} directory",
+                        "type": "string",
+                        "minLength": 1,
+                        "pattern": "[^ ]",
+                        "not": {
+                            "pattern": "^\\s+|\\s+$"
+                        }
+                    },
+                    "generator": {
+                        "title": "generator",
+                        "description": "A generator name to be executed",
+                        "type": "string",
+                        "minLength": 1,
+                        "pattern": "[^ ]",
+                        "not": {
+                            "pattern": "^\\s+|\\s+$"
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
