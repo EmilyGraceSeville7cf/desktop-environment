@@ -19,7 +19,7 @@ if test $status -eq 0
     gum spin \
         --spinner=minidot \
         --title="$(color 'Launching ' $default_color)$(color $favorite_name $identifier_color)$(color ... $default_color)" -- \
-        fish --command "$favorite_commands[$index]"
+    setsid fish --command "$favorite_commands[$index]"
 else
     message "The application launch has been cancelled."
 end

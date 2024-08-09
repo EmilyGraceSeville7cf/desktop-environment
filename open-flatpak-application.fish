@@ -31,7 +31,7 @@ if test $status -eq 0
     gum spin \
         --spinner=minidot \
         --title="$(color 'Launching ' $default_color)$(color $application $identifier_color)$(color ... $default_color)" -- \
-        flatpak run $id
+        setsid flatpak run $id
 else
     message "The application launch has been cancelled."
 end
