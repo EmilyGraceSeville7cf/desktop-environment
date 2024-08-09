@@ -36,7 +36,7 @@
                         "minLength": 1,
                         "pattern": "^[A-Z]",
                         "not": {
-                            "pattern": "^\\s+|\\s+$"
+                            "pattern": "^\\s+|\\s+$|::"
                         },
                         "examples": ["blank"]
                     },
@@ -44,6 +44,11 @@
                         "title": "language",
                         "description": "A language of the project displayed in a choice list",
                         "type": "string",
+                        "minLength": 1,
+                        "pattern": "^[A-Z]",
+                        "not": {
+                            "pattern": "^\\s+|\\s+$|::"
+                        },
                         "examples": [
                             "Fish",
                             "JavaScript",
