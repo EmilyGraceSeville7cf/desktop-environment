@@ -32,7 +32,7 @@
                         "description": "A name of the command displayed in a choice list",
                         "type": "string",
                         "minLength": 1,
-                        "pattern": "[^ ]",
+                        "pattern": "^[A-Z]",
                         "not": {
                             "pattern": "^\\s+|\\s+$"
                         }
