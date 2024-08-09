@@ -61,3 +61,28 @@ function question_with_multiline_input --argument-names question placeholder
 
     echo $result
 end
+
+function question_with_input_with_hints --argument-names question placeholder
+    set result
+    set placeholder_changed
+    set hints $argv[3..]
+
+    while test -z $result
+        set result (string join \n -- $hints |
+            gum filter \
+                --header=$question \
+                --prompt="❓ " \
+                --placeholder=$placeholder \
+                --header.foreground=$default_color \
+                --prompt.foreground=$selected_color)
+
+        test $status -ne 0 && return 1
+
+        if test -z $placeholder_changed
+            set placeholder "$placeholder [non empty and valid input expected]"
+            set placeholder_changed true
+        end
+    end
+
+    echo $result
+end
