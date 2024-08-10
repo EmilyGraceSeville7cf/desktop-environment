@@ -51,8 +51,10 @@ end
 set code (fish $project_generator)
 
 set code_directory $project_directory/$project_identifier
+
 mkdir $code_directory || begin
     message "🚧 Project creation failed because '$code_directory' directory already exists."
     exit
 end
+
 string join \n -- $code > $project_directory/$project_identifier/$project_entry
