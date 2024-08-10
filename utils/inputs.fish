@@ -37,6 +37,30 @@ function question_with_input --argument-names question placeholder
     echo $result
 end
 
+function question_with_password_input --argument-names question placeholder
+    set result
+    set placeholder_changed
+
+    while test -z $result
+        set result (gum input \
+            --header=$question \
+            --prompt="❓ " \
+            --placeholder=$placeholder \
+            --password \
+            --header.foreground=$default_color \
+            --prompt.foreground=$selected_color)
+
+        test $status -ne 0 && return 1
+
+        if test -z $placeholder_changed
+            set placeholder "$placeholder [non empty input expected]"
+            set placeholder_changed true
+        end
+    end
+
+    echo $result
+end
+
 function question_with_multiline_input --argument-names question placeholder
     set result
     set placeholder_changed
@@ -74,6 +98,7 @@ function question_with_input_with_hints --argument-names question placeholder
                 --prompt="❓ " \
                 --placeholder=$placeholder \
                 --indicator="✅" \
+                --height=6 \
                 --header.foreground=$default_color \
                 --prompt.foreground=$selected_color)
 

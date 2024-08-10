@@ -1,9 +1,10 @@
 #!/usr/bin/env fish
 
-source ~/Documents/open-source/fish/gui-menus/utils/message.fish
+source ~/Documents/open-source/fish/gui-menus/utils/inputs.fish
+source ~/Documents/open-source/fish/gui-menus/utils/outputs.fish
+source ~/Documents/open-source/fish/gui-menus/utils/icons.fish
 
-set cancellation_message "The connection setup has been cancelled."
-
+set cancellation_message "$cancel The connection setup has been cancelled."
 set temp (mktemp)
 
 gum spin \
@@ -15,56 +16,40 @@ gum spin \
         sed --quiet '2,\$p' > $temp"
 
 set connections (cat $temp)
+set connection (question_with_input_with_hints "What WiFi to connect to?" "WiFi..." $connections)
 
-set connection (string join \n -- $connections |
-    gum filter \
-        --header=(hint "WiFi connection") \
-        --height=6 \
-        --prompt="🖊️   " \
-        --indicator="✅ " \
-        --placeholder='WiFi...')
+test $status -ne 0 && begin
+    message $cancellation_message
+    exit
+end
 
-if test $status -eq 0
-    set raw_connection $connection
-    set connection (string replace --regex '(\s+(--|WPA.))*\s*$' '' -- $connection |
+set raw_connection $connection
+set connection (string replace --regex '(\s+(--|WPA.))*\s*$' '' -- $connection |
         string replace --regex '\s+\S+$' '')
-    
-    set password
 
-    if not string match --quiet --regex -- '--\s*$' $raw_connection
-        while test "$password" = ""
-            set password (gum input \
-            --header="$(color '❓ Type password for ' $default_color)$(color $connection $identifier_color)$(color ': ' $default_color)" \
-            --prompt="🔑 " \
-            --placeholder="Password..." \
-             --password)
+set password
 
-            test $status -ne 0 && begin
-                message $cancellation_message
-                exit
-            end
+if not string match --quiet --regex -- '--\s*$' $raw_connection
+    while test "$password" = ""
+        set password (question_with_password_input "What password to use to connect to $connection?" "Password...")
+
+        test $status -ne 0 && begin
+            message $cancellation_message
+            exit
         end
     end
-
-    set title "$(color 'Connecting to ' $default_color)$(color $connection $identifier_color)$(color ... $default_color)"
-
-    if test "$password" = ""
-        gum spin \
-            --spinner=minidot \
-            --title=$title -- \
-            nmcli device wifi connect $connection
-    else
-        gum spin \
-            --spinner=minidot \
-            --title=$title -- \
-            nmcli device wifi connect $connection password $password
-    end
-
-    test $status -ne 0 && begin
-        question " 💻 $(color 'Delete ' $default_color)$(color $connection $identifier_color)$(color ' as unreachable?' $default_color)"
-        test $status -eq 0 && gum spin --spinner=minidot --title "Deleting $connection..." -- \
-            nmcli connection delete uuid $connection_uuid
-    end
-else
-    message $cancellation_message
 end
+
+if test "$password" = ""
+    gum spin \
+        --spinner=minidot \
+        --title="Connecting to $connection..." -- \
+        nmcli device wifi connect $connection
+else
+    gum spin \
+        --spinner=minidot \
+        --title=$title -- \
+        nmcli device wifi connect $connection password $password
+end
+
+test $status -ne 0 && message "$error Failed to connect to $connection."

@@ -2,8 +2,9 @@
 
 source ~/Documents/open-source/fish/gui-menus/utils/inputs.fish
 source ~/Documents/open-source/fish/gui-menus/utils/outputs.fish
+source ~/Documents/open-source/fish/gui-menus/utils/icons.fish
 
-set cancellation_message "🚧 Project creation has been cancelled."
+set cancellation_message "$cancel Project creation has been cancelled."
 
 set projects ~/Documents/open-source/fish/gui-menus/data/projects.json
 set project_names (jq --raw-output .data[].name $projects)
