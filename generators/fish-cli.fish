@@ -10,7 +10,7 @@ set code_file (mktemp)
 printf "%s\n\n" "#!/usr/bin/env fish" >$code_file
 
 question "Add options?" && begin
-    set additional_options (question_with_input 'What options to add?' 'e.g. --sound|-s --no-sound|-n ...')
+    set additional_options (question_with_input "What options to add?" "e.g. --sound|-s --no-sound|-n ...")
 
     if test $status -ne 0
         cat $code_file
@@ -19,7 +19,7 @@ question "Add options?" && begin
 
     set additional_options (string trim -- $additional_options)
     set additional_options_pairs (string split " " -- $additional_options)
-    set specification 'argparse --name=(status current-filename)'
+    set specification "argparse --name=(status current-filename)"
 
     for pair in $additional_options_pairs
         set long (string split --max=1 --fields=1 "|" -- $pair)

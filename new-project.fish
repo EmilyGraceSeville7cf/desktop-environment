@@ -40,7 +40,7 @@ set project_directory (envsubst < (echo $project_directories[$index] | psub))
 set project_generator "$HOME/Documents/open-source/fish/gui-menus/generators/$project_generators[$index].fish"
 set project_entry $project_entries[$index]
 
-set project_identifier (question_with_input 'How to name the project?' 'e.g. My sample CLI ...')
+set project_identifier (question_with_input "How to name the project?" "e.g. My sample CLI ...")
 
 test $status -ne 0 && begin
     message $cancellation_message

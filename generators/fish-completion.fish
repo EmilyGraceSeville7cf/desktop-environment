@@ -9,7 +9,7 @@ set cancellation_message "🚧 Completion creation has been cancelled."
 set code_file (mktemp)
 printf "%s\n\n" "#!/usr/bin/env fish" >$code_file
 
-set executable (question_with_input 'What executable completions are created for?' 'e.g. krita')
+set executable (question_with_input "What executable completions are created for?" "e.g. krita")
 
 test $status -ne 0 && begin
     message $cancellation_message
@@ -24,7 +24,7 @@ question "Add --help|-h and --version|-v options?" && begin
 end
 
 question "Add more options?" && begin
-    set additional_options (question_with_input 'What options to add?' 'e.g. --sound|-s --no-sound|-n ...')
+    set additional_options (question_with_input "What options to add?" "e.g. --sound|-s --no-sound|-n ...")
 
     if test $status -ne 0
         cat $code_file
