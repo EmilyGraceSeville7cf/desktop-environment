@@ -7,11 +7,8 @@ source ~/Documents/open-source/fish/gui-menus/utils/icons.fish
 set cancellation_message "$cancel The connection setup has been cancelled."
 set temp (mktemp)
 
-gum spin \
-    --spinner=minidot \
-    --title.foreground=$default_color \
-    --spinner.foreground=$selected_color \
-    --title "Scanning for available WiFi connections..." -- \
+loading \
+    "$loading Scanning for available WiFi connections..." \
     fish --command "nmcli --fields=SSID,BARS,SECURITY --color=no device wifi list |
         sed --quiet '2,\$p' > $temp"
 
@@ -40,16 +37,12 @@ if not string match --quiet --regex -- '--\s*$' $raw_connection
     end
 end
 
+set connection_hint "Connecting to $connection..."
+
 if test "$password" = ""
-    gum spin \
-        --spinner=minidot \
-        --title="Connecting to $connection..." -- \
-        nmcli device wifi connect $connection
+    loading "$loading $connection_hint" nmcli device wifi connect $connection
 else
-    gum spin \
-        --spinner=minidot \
-        --title=$title -- \
-        nmcli device wifi connect $connection password $password
+    loading "$loading $connection_hint" nmcli device wifi connect $connection password $password
 end
 
 test $status -ne 0 && message "$error Failed to connect to $connection."

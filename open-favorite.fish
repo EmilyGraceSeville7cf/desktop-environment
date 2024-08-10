@@ -19,7 +19,4 @@ test $status -ne 0 && begin
 end
 
 set index (contains --index $favorite_name $favorite_names)
-gum spin \
-    --spinner=minidot \
-    --title="$(color 'Launching ' $default_color)$(color $favorite_name $identifier_color)$(color ... $default_color)" -- \
-    setsid fish --command "$favorite_commands[$index]"
+loading "$loading Launching $favorite_name..." setsid fish --command "$favorite_commands[$index]"

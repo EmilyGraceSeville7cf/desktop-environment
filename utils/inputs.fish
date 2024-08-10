@@ -14,6 +14,17 @@ function question --argument-names question
         $question
 end
 
+function loading --argument-names hint
+    set arguments $argv[2..]
+
+    gum spin \
+        --title=$hint \
+        --spinner=minidot \
+        --title.foreground=$default_color \
+        --spinner.foreground=$selected_color -- \
+        $arguments
+end
+
 function question_with_input --argument-names question placeholder
     set result
     set placeholder_changed

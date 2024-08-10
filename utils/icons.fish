@@ -2,3 +2,4 @@
 
 set error 🚧
 set cancel 👩
+set loading ⏳
