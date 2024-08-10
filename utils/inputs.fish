@@ -109,7 +109,7 @@ function question_with_input_with_hints --argument-names question placeholder
                 --prompt="❓ " \
                 --placeholder=$placeholder \
                 --indicator="✅" \
-                --height=6 \
+                --height=5 \
                 --header.foreground=$default_color \
                 --prompt.foreground=$selected_color)
 
