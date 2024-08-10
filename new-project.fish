@@ -5,7 +5,6 @@ source ~/Documents/open-source/fish/gui-menus/utils/outputs.fish
 source ~/Documents/open-source/fish/gui-menus/utils/icons.fish
 
 set cancellation_message "$cancel Project creation has been cancelled."
-
 set projects ~/Documents/open-source/fish/gui-menus/data/projects.json
 set project_names (jq --raw-output .data[].name $projects)
 set project_languages (jq --raw-output .data[].language $projects)
@@ -40,7 +39,6 @@ end
 set project_directory (envsubst < (echo $project_directories[$index] | psub))
 set project_generator "$HOME/Documents/open-source/fish/gui-menus/generators/$project_generators[$index].fish"
 set project_entry $project_entries[$index]
-
 set project_identifier (question_with_input "How to name the project?" "e.g. My sample CLI ...")
 
 test $status -ne 0 && begin
@@ -49,7 +47,6 @@ test $status -ne 0 && begin
 end
 
 set code (fish $project_generator)
-
 set code_directory $project_directory/$project_identifier
 
 mkdir $code_directory || begin
