@@ -7,12 +7,36 @@
             "is-terminal": true
         },
         {
+            "name": "Visual Studio Code",
+            "command": "code"
+        },
+        {
             "name": "Google Chat",
             "command": "flatpak run org.mozilla.firefox https://mail.google.com/chat/u/0/#chat/home"
         },
         {
             "name": "GitHub",
             "command": "flatpak run org.mozilla.firefox https://github.com/EmilyGraceSeville7cf"
+        },
+        {
+            "name": "Flathub",
+            "command": "flatpak run org.mozilla.firefox https://flathub.org/"
+        },
+        {
+            "name": "Reddit",
+            "command": "flatpak run org.mozilla.firefox https://www.reddit.com/"
+        },
+        {
+            "name": "Learning Apps",
+            "command": "flatpak run org.mozilla.firefox https://learningapps.org/"
+        },
+        {
+            "name": "YouTube",
+            "command": "flatpak run org.mozilla.firefox https://www.youtube.com/"
+        },
+        {
+            "name": "Edit configuration",
+            "command": "code /home/emilygraceseville7cf/Documents/open-source/fish/gui-menus"
         }
     ]
 }
