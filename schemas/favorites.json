@@ -3,7 +3,10 @@
     "title": "favorites commands",
     "description": "Favorite commands",
     "type": "object",
-    "required": ["$schema", "data"],
+    "required": [
+        "$schema",
+        "data"
+    ],
     "additionalProperties": false,
     "properties": {
         "$schema": {
@@ -35,7 +38,11 @@
                         "pattern": "^[A-Z]",
                         "not": {
                             "pattern": "^\\s+|\\s+$"
-                        }
+                        },
+                        "examples": [
+                            "Google Chat",
+                            "Visual Studio Code"
+                        ]
                     },
                     "command": {
                         "title": "command",
@@ -45,11 +52,15 @@
                         "pattern": "[^ ]",
                         "not": {
                             "pattern": "^\\s+|\\s+$"
-                        }
+                        },
+                        "examples": [
+                            "flatpak run org.mozilla.firefox APPLICATION",
+                            "code DIRECTORY"
+                        ]
                     },
                     "is-terminal": {
                         "title": "is terminal",
-                        "description": "Specify whether the application is a terminal one",
+                        "description": "Specify whether the command is a terminal one\n📕 Note: It's required to set this to 'true' for terminal applications to open correctly",
                         "type": "boolean"
                     }
                 }
