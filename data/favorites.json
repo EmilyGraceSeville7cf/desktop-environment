@@ -3,7 +3,8 @@
     "data": [
         {
             "name": "Terminal",
-            "command": "gnome-terminal --zoom 1 --maximize"
+            "command": "gnome-terminal --zoom 1 --maximize",
+            "is-terminal": true
         },
         {
             "name": "Google Chat",

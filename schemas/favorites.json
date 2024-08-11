@@ -46,6 +46,11 @@
                         "not": {
                             "pattern": "^\\s+|\\s+$"
                         }
+                    },
+                    "is-terminal": {
+                        "title": "is terminal",
+                        "description": "Specify whether the application is a terminal one",
+                        "type": "boolean"
                     }
                 }
             }

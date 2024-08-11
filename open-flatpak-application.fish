@@ -27,4 +27,5 @@ set id (string join \n -- $applications |
         string match --entire --regex "$application\$" |
         string replace --regex '\s+.*$' '')
 
-loading "$loading Launching $application..." setsid flatpak run $id
+loading "$loading Launching $application..." sleep 2s
+setsid --fork -- flatpak run $id 0<&- &>/dev/null
