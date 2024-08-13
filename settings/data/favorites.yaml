@@ -1,0 +1,28 @@
+- name: Terminal
+  icon: 🐚
+  command: gnome-terminal --zoom 1 --maximize
+  is-terminal: true
+- name: Visual Studio Code
+  icon: 📝
+  command: code
+- name: Google Chat
+  icon: 😸
+  command: flatpak run org.mozilla.firefox https://mail.google.com/chat/u/0/#chat/home
+- name: GitHub
+  icon: 🌍
+  command: flatpak run org.mozilla.firefox https://github.com/EmilyGraceSeville7cf
+- name: Flathub
+  icon: 💻
+  command: flatpak run org.mozilla.firefox https://flathub.org/
+- name: Reddit
+  icon: 😸
+  command: flatpak run org.mozilla.firefox https://www.reddit.com/
+- name: Learning Apps
+  icon: 📚
+  command: flatpak run org.mozilla.firefox https://learningapps.org/
+- name: " YouTube"
+  icon: 👁️
+  command: flatpak run org.mozilla.firefox https://www.youtube.com/
+- name: " Configuration"
+  icon: ⚙️
+  command: code /home/emilygraceseville7cf/Documents/open-source/fish/gui-menus

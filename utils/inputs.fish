@@ -1,6 +1,7 @@
 #!/usr/bin/env fish
 
 source ~/Documents/open-source/fish/gui-menus/utils/colors.fish
+source ~/Documents/open-source/fish/gui-menus/utils/icons.fish
 
 function pause
     read --prompt-str="🕥 Press any key to continue..." --nchars=1
@@ -32,7 +33,7 @@ function question_with_input --argument-names question placeholder
     while test -z $result
         set result (gum input \
             --header=$question \
-            --prompt="❓ " \
+            --prompt="$prompt " \
             --placeholder=$placeholder \
             --header.foreground=$default_color \
             --prompt.foreground=$selected_color)
@@ -55,7 +56,7 @@ function question_with_password_input --argument-names question placeholder
     while test -z $result
         set result (gum input \
             --header=$question \
-            --prompt="❓ " \
+            --prompt="$prompt " \
             --placeholder=$placeholder \
             --password \
             --header.foreground=$default_color \
@@ -106,9 +107,9 @@ function question_with_input_with_hints --argument-names question placeholder
         set result (string join \n -- $hints |
             gum filter \
                 --header=$question \
-                --prompt="❓ " \
+                --prompt="$prompt " \
                 --placeholder=$placeholder \
-                --indicator="✅" \
+                --indicator="$selected" \
                 --height=5 \
                 --header.foreground=$default_color \
                 --prompt.foreground=$selected_color)

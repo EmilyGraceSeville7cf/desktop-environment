@@ -1,0 +1,5 @@
+{
+    "yaml.schemas": {
+        "settings/schemas/favorites.json": "settings/data/favorites.yaml"
+    }
+}
