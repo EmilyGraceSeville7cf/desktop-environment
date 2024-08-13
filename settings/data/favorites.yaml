@@ -5,6 +5,30 @@
 - name: Visual Studio Code
   icon: 📝
   command: code
+- name: Go playground
+  icon: 💻
+  command: flatpak run org.mozilla.firefox https://www.mycompiler.io/new/go
+- name: C playground
+  icon: 💻
+  command: flatpak run org.mozilla.firefox https://www.mycompiler.io/new/c
+- name: JavaScript playground
+  icon: 💻
+  command: flatpak run org.mozilla.firefox https://www.mycompiler.io/new/nodejs
+- name: Apps Script playground
+  icon: 💻
+  command: flatpak run org.mozilla.firefox https://script.google.com/home/projects/1opUxCT67uqkydA1hhbXvdoOgOrV46CmCXXwaxNN4t-0iLwr3nm8Ahoes/edit
+- name: Go help
+  icon: 📖
+  command: flatpak run org.mozilla.firefox https://forum.golangbridge.org/
+- name: C help
+  icon: 📖
+  command: flatpak run org.mozilla.firefox https://www.reddit.com/r/C_Programming/
+- name: JavaScript help
+  icon: 📖
+  command: flatpak run org.mozilla.firefox https://www.reddit.com/r/javascript/
+- name: Apps Script help
+  icon: 📖
+  command: flatpak run org.mozilla.firefox https://www.reddit.com/r/GoogleAppsScript/
 - name: Google Chat
   icon: 😸
   command: flatpak run org.mozilla.firefox https://mail.google.com/chat/u/0/#chat/home
