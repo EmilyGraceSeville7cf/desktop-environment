@@ -11,7 +11,6 @@ set favorite_names (yq $yq_options .[].name $favorites)
 set favorite_icons (yq $yq_options .[].icon $favorites)
 set favorite_commands (yq $yq_options .[].command $favorites)
 set favorites_is_terminal (yq $yq_options '.[] | .["is-terminal"] // false' $favorites)
-
 set displayed_favorites
 
 for index in (seq (count $favorite_names))
@@ -30,6 +29,7 @@ end
 
 set favorite_name (remove_emoji $favorite_name | string replace --regex '^\s*' '')
 set index (contains --index $favorite_name $favorite_names)
+
 loading "$loading Launching $favorite_name..." sleep 2s
 
 if test $favorites_is_terminal[$index] = false
