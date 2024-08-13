@@ -20,9 +20,9 @@
 - name: Learning Apps
   icon: 📚
   command: flatpak run org.mozilla.firefox https://learningapps.org/
-- name: " YouTube"
+- name: "YouTube"
   icon: 👁️
   command: flatpak run org.mozilla.firefox https://www.youtube.com/
-- name: " Configuration"
+- name: "Configuration"
   icon: ⚙️
   command: code /home/emilygraceseville7cf/Documents/open-source/fish/gui-menus

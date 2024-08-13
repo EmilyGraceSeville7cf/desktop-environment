@@ -1,6 +1,12 @@
 #!/usr/bin/env fish
 
-set menu_path $argv[1]
+set path $argv[1]
 set arguments $argv[2..]
-set menu_size 70x7
-gnome-terminal --hide-menubar --zoom 1.5 --geometry $menu_size $arguments -- $menu_path
+
+set name (basename -s .fish -- $path)
+set title (string sub --start=1 --length=1 -- $name | string upper)(string sub --start=2 -- $name | string replace - " ")
+
+kitty \
+    --title="💟 $title..." \
+    --config /home/emilygraceseville7cf/Documents/open-source/fish/gui-menus/kitty.conf -- \
+    $path
