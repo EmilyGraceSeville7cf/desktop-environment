@@ -16,7 +16,7 @@
   command: flatpak run org.mozilla.firefox https://www.mycompiler.io/new/nodejs
 - name: Apps Script playground
   icon: 💻
-  command: flatpak run org.mozilla.firefox https://script.google.com/home/projects/1opUxCT67uqkydA1hhbXvdoOgOrV46CmCXXwaxNN4t-0iLwr3nm8Ahoes/edit
+  command: flatpak run org.mozilla.firefox https://script.google.com/home/projects/1mnqyV2-145eeBwFIc3fVAfDtyExz_C0j-QZY8EwX6_mjz2cWodIcJHs2/edit
 - name: Go help
   icon: 📖
   command: flatpak run org.mozilla.firefox https://forum.golangbridge.org/
